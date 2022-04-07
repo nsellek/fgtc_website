@@ -15,3 +15,24 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+require("@popperjs/core")
+
+import "bootstrap"
+import { Tooltip, Popover } from "bootstrap"
+
+require("../stylesheets/application.scss")
+
+document.addEventListener("turbolinks:load", () => {
+  // Both of these are from the Bootstrap 5 docs
+  let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  let tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+    return new Tooltip(tooltipTriggerEl)
+  })
+
+  let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+  let popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
+    return new Popover(popoverTriggerEl)
+  })
+})
+
